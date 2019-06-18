@@ -1,0 +1,56 @@
+.radio
+  display: flex
+  flex-direction: column
+  flex-direction: 20%
+  padding: 10px
+  margin: 10px
+  background: white
+  cursor: pointer
+  border-radius: 10px
+  transition: 0.5s
+  width: 160px
+  &:hover
+    box-shadow: 0 0 10px #409cde
+    transition: 0.5s
+  img
+    height: 70px
+  &-wrap
+    padding: 15px
+    display: flex
+    justify-content: center
+    align-items: center
+    flex-wrap: wrap
+    margin-top: 70px
+  &__title
+    font-size: 18px
+    +bold
+    text-align: center
+    margin-top: 10px
+  &__descr
+    margin-top: 10px
+    +medium
+    text-align: center
+    min-height: 40px
+  &__button
+    border: none
+    border-radius: 5px
+    width: 100%
+    font-size: 16px
+    +medium
+    margin-top: 10px
+    padding: 10px 20px
+    background: #409cde
+    cursor: pointer
+    transition: 0.5s
+    &:hover
+      background: lighten(#409cde, 5%)
+      color: white
+      transition: 0.5s
+      .hearts
+        color: red
+        transition: 0.5s
+.hearts
+  transition: 0.5s
+  color: white
+
+  
