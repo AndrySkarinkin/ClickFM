@@ -1,61 +1,75 @@
 const radioList = document.querySelector('.radio-wrap');
-let bestList = '';
-let popList = '';
-let clubList = '';
-let currentList ='';
+let currentList = '';
 
-
-function setRadioList() {
+function printRadioList() {
   switch (event.target.id) {
+    case 'all':
+      setRadioList(dataAll, '', 'all');
+      break;
     case 'best':
-      if (bestList != '') {
-        radioList.innerHTML = bestList;
-      } else {
-        dataBest.forEach(el => {
-          bestList += `<div class="radio " id="${el.id}">
-          <img src="${el.img}" alt="${el.id}">
-          <div class="radio__title">${el.title}</div>
-          <div class="radio__descr">${el.type}</div>
-          <button class="radio__button">Add to <i class="fas fa-heart hearts"></i> </button>
-        </div>`;
-        });
-        radioList.innerHTML = bestList;
-      }
-      currentList = dataBest;
+      setRadioList(dataBest, 'best', 'best');
+      break;
+    case 'club':
+      setRadioList(dataClub, 'club', 'club');
+      break;
+    case 'dance':
+      setRadioList(dataClub, 'dance', 'dance');
+      break;
+    case 'trance':
+      setRadioList(dataClub, 'trance', 'trance');
+      break;
+    case 'house':
+      setRadioList(dataClub, 'house', 'house');
+      break;
+    case 'russian-mix':
+      setRadioList(dataClub, 'russian-mix', 'russian-mix');
       break;
     case 'pop':
-      if (popList != '') {
-        radioList.innerHTML = popList;
-       
-      } else {
-        dataPop.forEach(el => {
-          popList +=
-            `<div class="radio" id="${el.id}">
-          <img src="${el.img}" alt="${el.id}">
-          <div class="radio__title">${el.title}</div>
-          <div class="radio__descr">${el.type}</div>
-          <button class="radio__button">Add to <i class="fas fa-heart hearts"></i> </button>
-        </div>`;
-        });
-        radioList.innerHTML = popList;
-      }
-      currentList = dataPop; 
+      setRadioList(dataPop, 'pop', 'pop');
       break;
-      case 'club':
-      if (clubList != '') {
-        radioList.innerHTML = clubList;
-      } else {
-        dataClub.forEach(el => {
-          clubList += `<div class="radio " id="${el.id}">
-          <img src="${el.img}" alt="${el.id}">
-          <div class="radio__title">${el.title}</div>
-          <div class="radio__descr">${el.type}</div>
-          <button class="radio__button">Add to <i class="fas fa-heart hearts"></i> </button>
-        </div>`;
-        });
-        radioList.innerHTML = clubList;
-      }
-      currentList = dataClub;
+    case 'foreign-pop':
+      setRadioList(dataPop, 'foreign-pop', 'foreign-pop');
+      break;
+    case 'russian-pop':
+      setRadioList(dataPop, 'russian-pop', 'russian-pop');
+      break;
+    case 'rap':
+      setRadioList(dataRap, 'rap', 'rap');
+      break;
+    case 'foreign-rap':
+      setRadioList(dataRap, 'foreign-rap', 'foreign-rap');
+      break;
+    case 'russian-rap':
+      setRadioList(dataRap, 'russian-rap', 'russian-rap');
+      break;
+    case 'relax':
+      setRadioList(dataRelax, 'relax', 'relax');
+      break;
+    case 'rock':
+      setRadioList(dataRock, 'rock', 'rock');
+      break;
+    case 'foreign-rock':
+      setRadioList(dataRock, 'foreign-rock', 'foreign-rock');
+      break;
+    case 'russian-rock':
+      setRadioList(dataRock, 'russian-rock', 'russian-rock');
       break;
   }
+}
+
+function setRadioList(dataList, genre, pathName) {
+  let getList = '';
+  dataList.forEach(el => {
+    if (el.type.indexOf(genre) != -1) {
+      getList += `<div class="radio " id="${el.id}">
+        <img src="${el.img}" alt="${el.id}">
+        <div class="radio__title">${el.title}</div>
+        <div class="radio__descr">${el.type}</div>
+        <button class="radio__button">Add to <i class="fas fa-heart hearts"></i> </button>
+      </div>`;
+    }
+  });
+  radioList.innerHTML = getList;
+  currentList = dataList;
+  window.location.hash = pathName;
 }

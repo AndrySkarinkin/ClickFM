@@ -372,13 +372,14 @@
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
   margin-top: 70px;
+  margin-bottom: 70px;
 }
 
 .radio__title {
   font-size: 18px;
   font-family: 'Rubik-Medium';
   text-align: center;
-  margin-top: 10px;
+  margin-top: 15px;
 }
 
 .radio__descr {
@@ -448,7 +449,7 @@ img {
   position: fixed;
   bottom: 0;
   left: 0;
-  height: 80px;
+  height: 70px;
   width: 100%;
   background: #222536;
   padding: 10px;
@@ -461,8 +462,8 @@ img {
   display: flex;
   -ms-flex-pack: distribute;
       justify-content: space-around;
-  -ms-flex-preferred-size: 35%;
-      flex-basis: 35%;
+  -ms-flex-preferred-size: 40%;
+      flex-basis: 40%;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -484,7 +485,7 @@ img {
 }
 
 .player__data-img img {
-  width: 90px;
+  width: 70px;
 }
 
 .player__data-descr a {
@@ -515,8 +516,8 @@ img {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  -ms-flex-preferred-size: 65%;
-      flex-basis: 65%;
+  -ms-flex-preferred-size: 60%;
+      flex-basis: 60%;
 }
 
 .player__control-panel {
@@ -532,7 +533,7 @@ img {
 
 .control-like {
   cursor: pointer;
-  font-size: 30px;
+  font-size: 25px;
   color: white;
   -webkit-transition: 0.3s;
   transition: 0.3s;
@@ -545,7 +546,7 @@ img {
 
 .control-stop, .control-prev, .control-next, .control-volume {
   cursor: pointer;
-  font-size: 30px;
+  font-size: 25px;
   color: white;
   margin: 0 15px;
   -webkit-transition: 0.3s;

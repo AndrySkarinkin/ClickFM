@@ -7,7 +7,7 @@ const submenu = document.querySelector('.submenu');
 mobileButtonMenu.addEventListener('click', showOrHideMenu);
 mobileButtonMenu.addEventListener('click', changeMenuIcon);
 menu.addEventListener('click', showHideSubMenu);
-menu.addEventListener('click', setRadioList);
+menu.addEventListener('click', printRadioList);
 
 //menu.addEventListener('click', changeArrow);
 

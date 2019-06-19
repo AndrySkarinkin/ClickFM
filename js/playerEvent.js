@@ -45,9 +45,9 @@ function setRadio() {
         trackName = el.songName;
       }
     });
+    radio.src = url;
     radioLogo.src = logo;
     radioTitle.innerHTML = title;
-    radio.src = url;
     getTrackName(trackName);
     changeCheckSongName();
   }
