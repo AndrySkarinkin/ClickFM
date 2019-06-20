@@ -77,15 +77,22 @@ function setRadioList(dataList, genre, pathName) {
 }
 
 function setActiveRadio() {
-  let parent = event.target.parentNode.parentNode;
+  let parent;
+  event.target.classList.contains('radio') ?
+    parent = event.target.parentNode :
+    parent = event.target.parentNode.parentNode;
   let array = parent.children;
 
   if (event.target != radioList) {
-    for (let i = 0 ; i < array.length; i++){
-      if (array[i].classList.contains('active-radio')){
+    for (let i = 0; i < array.length; i++) {
+      if (array[i].classList.contains('active-radio')) {
         array[i].classList.remove('active-radio');
       }
     }
-    event.target.parentNode.classList.add('active-radio');
+    event.target.classList.contains('radio') ?
+      event.target.classList.add('active-radio') :
+      event.target.parentNode.classList.add('active-radio')
+
+
   }
 }
