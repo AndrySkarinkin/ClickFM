@@ -136,7 +136,7 @@ let dataPop = [{
     id: 'likeFm',
     url: 'http://ic3.101.ru:8000/v12_1',
     title: 'Like FM',
-    img: '../img/radioIMG/likeFm.png',
+    img: 'img/radioIMG/likeFm.png',
     songName: 'https://scraper2.onlineradiobox.com/ru.radiolikefm?l=0'
   },
 ];
@@ -212,7 +212,7 @@ let dataClub = [{
     id: 'lRadio',
     url: 'https://96mp3.lradio.ru/lradio.stereo.96.mp3',
     title: 'L-Radio',
-    img: '../img/radioIMG/lRadio.png',
+    img: 'img/radioIMG/lRadio.png',
     songName: 'playing'
   },
 ];
@@ -233,7 +233,7 @@ let dataRock = [
     id: 'rockFM',
     url: 'http://nashe.streamr.ru/rock-128.mp3',
     title: 'Rock FM',
-    img: '../img/radioIMG/rockFm.png',
+    img: 'img/radioIMG/rockFm.png',
     songName: 'https://scraper2.onlineradiobox.com/ru.rockfm?l=0'
   },
   {
@@ -252,7 +252,7 @@ let dataRelax = [
     id: 'relaxFM',
     url: 'http://ic3.101.ru:8000/v13_1?',
     title: 'Relax FM',
-    img: '../img/radioIMG/relaxFm.png',
+    img: 'img/radioIMG/relaxFm.png',
     songName: 'https://scraper2.onlineradiobox.com/ru.relaxfm?l=0'
   },
   {
@@ -260,7 +260,7 @@ let dataRelax = [
     id: 'atmosfera',
     url: 'http://185.53.169.128:8000/192',
     title: 'Атмосфера',
-    img: '../img/radioIMG/atmosfera.png',
+    img: 'img/radioIMG/atmosfera.png',
     songName: 'https://scraper2.onlineradiobox.com/ru.atmoradio.ru?l=0'
   },
 
@@ -272,10 +272,32 @@ let dataRap = [
     id: 'atmosfera',
     url: 'http://185.53.169.128:8000/192',
     title: 'Атмосфера',
-    img: '../img/radioIMG/atmosfera.png',
+    img: 'img/radioIMG/atmosfera.png',
     songName: 'https://scraper2.onlineradiobox.com/ru.atmoradio.ru?l=0'
   },
 
 ];
 
-let dataAll = dataBest.concat(dataPop, dataClub, dataRock, dataRelax, dataRap);
+let dataFull = dataBest.concat(dataPop, dataClub, dataRock, dataRelax, dataRap);
+
+function comprasion(a, b){
+  if(a.id < b.id){
+    return -1;
+  }
+  if(a.id > b.id){
+    return 1;
+  }
+  return 0 ;
+}
+
+let dataAll = dataFull.sort(comprasion);
+for (let i = dataAll.length -1; i>0; i--){
+  if(dataAll[i].id == dataAll[i-1].id){
+    dataAll.splice(i,1);
+  }
+}
+
+
+
+
+

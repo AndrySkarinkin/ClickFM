@@ -8,6 +8,7 @@ mobileButtonMenu.addEventListener('click', showOrHideMenu);
 mobileButtonMenu.addEventListener('click', changeMenuIcon);
 menu.addEventListener('click', showHideSubMenu);
 menu.addEventListener('click', printRadioList);
+menu.addEventListener('click', setActiveLink);
 
 //menu.addEventListener('click', changeArrow);
 
@@ -32,21 +33,15 @@ function showHideSubMenu() {
   }
 }
 
-
-
-/* function changeArrow() {
-  if (event.target.classList.contains('top-menu__link') && window.innerWidth < '800') {
-    event.target.childNodes.forEach(el => {
-        if (el.tagName == 'I') {
-          if(el.classList.contains('fa-sort-down')){
-            el.classList.remove('fa-sort-down');
-            el.classList.add('fa-sort-up');
-          } else if(el.classList.contains('fa-sort-up')){
-            el.classList.remove('fa-sort-up');
-            el.classList.add('fa-sort-down');
-          }
-        }
-      });
+function setActiveLink(){
+  let parent = event.target.parentNode.parentNode;
+  let array = parent.children;
+  if (event.target != menu){
+    for(let i = 0; i < array.length; i++){
+      if (array[i].classList.contains('active-link')){
+        array[i].classList.remove('active-link');
     }
-    
-} */
+  }
+  event.target.parentNode.classList.add('active-link');
+}
+}

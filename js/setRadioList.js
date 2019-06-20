@@ -1,6 +1,8 @@
 const radioList = document.querySelector('.radio-wrap');
 let currentList = '';
 
+radioList.addEventListener('click', setActiveRadio);
+
 function printRadioList() {
   switch (event.target.id) {
     case 'all':
@@ -72,4 +74,18 @@ function setRadioList(dataList, genre, pathName) {
   radioList.innerHTML = getList;
   currentList = dataList;
   window.location.hash = pathName;
+}
+
+function setActiveRadio() {
+  let parent = event.target.parentNode.parentNode;
+  let array = parent.children;
+
+  if (event.target != radioList) {
+    for (let i = 0 ; i < array.length; i++){
+      if (array[i].classList.contains('active-radio')){
+        array[i].classList.remove('active-radio');
+      }
+    }
+    event.target.parentNode.classList.add('active-radio');
+  }
 }

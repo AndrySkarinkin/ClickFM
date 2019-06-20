@@ -90,7 +90,6 @@ function changeCheckSongName() {
 }
 
 function getData() {
-  console.log(event.target);
   let radio = '';
   event.target.id == '' ? radio = event.target.parentNode.id : radio = event.target.id;
   return radio;

@@ -194,6 +194,10 @@
   z-index: 0;
 }
 
+.active-link {
+  background: white;
+}
+
 @media (max-width: 1300px) {
   .top-menu li:hover .top-menu__link {
     padding: 23px;
@@ -422,6 +426,11 @@
   color: white;
 }
 
+.active-radio {
+  -webkit-box-shadow: 0 0 10px #409cde;
+          box-shadow: 0 0 10px #409cde;
+}
+
 * {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
@@ -449,7 +458,7 @@ img {
   position: fixed;
   bottom: 0;
   left: 0;
-  height: 70px;
+  height: 65px;
   width: 100%;
   background: #222536;
   padding: 10px;
@@ -493,10 +502,6 @@ img {
   color: #2c7df6;
   font-size: 18px;
   font-family: 'Rubik-Medium';
-}
-
-.player__data-descr a:hover {
-  color: #dc050d;
 }
 
 .player__data-song {
