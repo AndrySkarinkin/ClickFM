@@ -1,0 +1,167 @@
+.modal-sign, .modal-login
+  position: relative
+  display: flex
+  flex-direction: column
+  justify-content: center
+  align-items: center
+  &-wrap
+    display: none
+    position: fixed
+    top: 50%
+    left: 50%
+    transform: translate(-175px, -226px)
+    width: 350px
+    background: white
+    padding: 50px 0
+    border-radius: 20px
+    transition: 2s
+    z-index: 4
+  &__input
+    width: 250px
+    height: 40px
+    margin-bottom: 50px
+    border: none
+    border-bottom: 1px solid black
+    outline: none
+    transition: 0.5s
+    font-size: 18px
+    &:focus
+       border-bottom: 1px solid #409cde
+       transition: 0.5s
+       &::placeholder
+         color: black
+    &::placeholder
+      font-size: 14px
+  &__close
+    position: absolute
+    top: 10px
+    right: 10px
+    cursor: pointer
+    font-size: 20px
+    transition: 0.5s
+    &:hover
+      color: #409cde
+      transition: 0.5s
+.modal-btn
+  border: none
+  padding: 15px 70px
+  border-radius: 10px
+  font-size: 18px
+  +medium
+  cursor: pointer
+  background: #409cde
+  margin-top: 10px
+  transition: 0.5s
+  outline: none
+  &:hover
+    background: lighten(#409cde, 7)
+    transition: 0.5s
+    +bold
+    box-shadow: 0 0 3px 
+.modal-login-wrap
+  transform: translate(-175px, -171px)
+.overlay
+  position: fixed
+  width: 100%
+  height: 100%
+  top: 0
+  right: 0
+  left: 0
+  bottom: 0
+  z-index: 3
+  background: black
+  opacity: 0.8
+  display: none
+.fa-check
+  display: none
+  color: green
+  font-size: 20px
+.warning-modal
+  &-wrap
+  &__text
+  
+.warning-modal
+  &-wrap
+    position: fixed
+    text-align: center
+    display: none
+    width: 300px
+    height: 300px
+    background: bisque
+    padding: 30px
+    top: 50%
+    left: 50%
+    transform: translate(-150px, -150px )
+    border-radius: 20px
+    z-index: 7
+  &__text
+    color: black
+    font-size: 18px
+    +medium
+    margin-bottom: 50px
+  &__error
+    font-size: 24px
+    +bold
+    margin-bottom: 30px
+.modal-ok
+  display: none
+  width: 300px
+  height: 270px
+  background: white
+  padding: 50px
+  position: fixed
+  top: 50%
+  left: 50%
+  transform: translate(-150px, -135px)
+  text-align: center
+  z-index: 4
+  border-radius: 20px
+  &__text
+    font-size: 18px
+    +medium
+    margin-bottom: 30px
+.modal-exit, .modal-unlogin
+  display: none
+  position: fixed
+  top: 15%
+  right: 3%
+  background: white
+  width: 300px
+  height: 180px
+  padding: 30px
+  border-radius: 20px
+  z-index: 4
+  &__title
+    text-align: center
+    font-size: 18px
+    +medium
+    margin-bottom: 30px
+  &__buttons
+    display: flex
+    flex-direction: row
+    justify-content: space-between
+.modal-btn-exit, .modal-btn-unlogin
+  padding: 15px 35px
+
+
+
+
+
+@media (max-width: 500px)
+  .modal-sign, .modal-login
+    &-wrap
+      transform: translate(-125px, -161px)
+      width: 250px
+      background: white
+      padding: 40px 0
+    &__input
+      width: 150px
+      height: 30px
+      margin-bottom: 30px
+      font-size: 14px
+      &::placeholder
+        font-size: 12px
+  .modal-login-wrap
+    transform: translate(-125px, -131px)
+
+  

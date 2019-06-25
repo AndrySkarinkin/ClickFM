@@ -1,6 +1,13 @@
-const mobileButtonMenu = document.querySelector('.mobile-menu');
-const menu = document.querySelector('.top-menu');
-const submenu = document.querySelector('.submenu');
+const mobileButtonMenu = document.querySelector('.mobile-menu'),
+  menu = document.querySelector('.top-menu'),
+  delAccauntBtn = document.querySelector('.del-accaunt'),
+  exitBtn = document.querySelector('#exit'),
+  signButton = document.querySelector('#sign-up'),
+  loginButton = document.querySelector('#log-in'),
+  heart = document.querySelector('.heart'),
+  userIcon = document.querySelector('.user-icon')
+  submenu = document.querySelector('.submenu');
+
 
 
 
@@ -26,22 +33,23 @@ function showHideSubMenu() {
   const link = event.target.parentNode;
   if (event.target.classList.contains('top-menu__link')) {
     link.childNodes.forEach(el => {
-      if (el.tagName == 'UL'  ) {
+      if (el.tagName == 'UL') {
         el.classList.toggle('show');
       }
     });
   }
 }
 
-function setActiveLink(){
+function setActiveLink() {
   let parent = event.target.parentNode.parentNode;
   let array = parent.children;
-  if (event.target != menu){
-    for(let i = 0; i < array.length; i++){
-      if (array[i].classList.contains('active-link')){
+  if (event.target != menu && event.target != signButton && event.target != loginButton && 
+    event.target != delAccauntBtn && event.target != exitBtn  ) {
+    for (let i = 0; i < array.length; i++) {
+      if (array[i].classList.contains('active-link')) {
         array[i].classList.remove('active-link');
+      }
     }
+    event.target.parentNode.classList.add('active-link');
   }
-  event.target.parentNode.classList.add('active-link');
-}
 }

@@ -11,6 +11,7 @@
 </head>
 
 <body>
+  <div class="overlay"></div>
   <div class="container">
     <header>
       <nav class="top-menu-wrap">
@@ -48,7 +49,7 @@
             </ul>
           </li>
 
-          <li >
+          <li>
             <div class="pop top-menu__link" id="pop">
               Pop
               <i class="fas fa-sort-down"></i>
@@ -91,10 +92,15 @@
 
           <li>
             <div class="top-menu__link" id="log-in"> <i class="fas fa-lock lock"></i> Log in</div>
+            <div class="top-menu__link" id="exit"> <i class="fas fa-sign-out-alt"></i> Exit</div>
+
+            
           </li>
 
           <li>
             <div class="top-menu__link" id="sign-up"> <i class="fas fa-sign-in-alt sign"></i> Sign up</div>
+            <div class="top-menu__link del-accaunt"  title="delete accaunt" id="del-accaunt"> <i class="fas fa-user-times" title = "delete account"></i></div>
+            <div class="top-menu__link user-icon"><i class="fas fa-user"></i></div>
           </li>
 
         </ul>
@@ -107,7 +113,7 @@
   <!-- /.container -->
 
   <div class="radio-wrap">
-    
+
 
   </div>
   <!-- /.radio-wrap -->
@@ -126,7 +132,7 @@
       </div>
       <div class="player__control">
         <div class="player__conrol-panel">
-          <audio src="" autoplay></audio>
+          <audio autoplay></audio>
 
           <span title="Add to favorites" class="control-like">
             <i class="fas fa-heart"></i>
@@ -162,6 +168,72 @@
   </div>
   <!-- /.container -->
 
+  <div class="container">
+    <div class="modal-sign-wrap">
+      <div class="modal-sign">
+        <input type="text" placeholder="Enter your name" class="modal-sign__input sign-name">
+        <input type="password" placeholder="Enter your login" class="modal-sign__input sign-login">
+        <input type="password" placeholder="Enter your password" class="modal-sign__input sign-password">
+        <button class="modal-sign__btn modal-btn">Sign in</button>
+      </div>
+      <div class="modal-sign__close">
+        <i class="far fa-times-circle"></i>
+      </div>
+    </div>
+    <!-- /.modal-sign-up-wrap -->
+
+
+    <div class="modal-login-wrap">
+      <div class="modal-login">
+        <input type="text" placeholder="Enter your login" class="modal-login__input login-login">
+        <input type="password" placeholder="Enter your password" class="modal-login__input login-password">
+        <button class="modal-login__btn modal-btn">Log in</button>
+      </div>
+      <div class="modal-login__close">
+        <i class="far fa-times-circle"></i>
+      </div>
+    </div>
+    <!-- /.modal-sign-up-wrap -->
+
+    <div class="warning-modal-wrap">
+      <div class="warning-modal__error">Error</div>
+      <div class="warning-modal__text">
+      </div>
+      <button class="warning-btn modal-btn">OK</button>
+    </div>
+    <!-- /.warning-modal-wrap -->
+
+    <div class="modal-ok">
+      <div class="modal-ok__text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam, re.</div>
+      <button class="modal-btn modal-ok-button">OK</button>
+    </div>
+
+    <div class="modal-exit">
+      <div class="modal-exit__title">
+          Do you really want to exit?
+      </div>
+      <div class="modal-exit__buttons">
+        <button class="modal-btn modal-btn-exit modal-exit-yes">Yes</button>
+        <button class="modal-btn modal-btn-exit modal-exit-no">No</button>
+      </div>
+      </div>
+      <div class="modal-unlogin">
+          <div class="modal-unlogin__title">
+              Do you really want to delete your account?
+          </div>
+          <div class="modal-unlogin__buttons">
+            <button class="modal-btn modal-btn-unlogin modal-unlogin-yes">Yes</button>
+            <button class="modal-btn modal-btn-unlogin modal-unlogin-no">No</button>
+          </div>
+    </div>
+
+      
+  
+
+
+  </div>
+  <!-- /.container -->
+
 
 
   <script src="https://kit.fontawesome.com/b4af267f94.js"></script>
@@ -169,8 +241,10 @@
   <script src="js/setRadioList.js"></script>
   <script src="js/menuEvents.js"></script>
   <script src="js/playerEvent.js"></script>
-  <script src="js/playRadio.js"></script>
- 
+  <script src="js/modalEvents.js"></script>
+  <script src="js/checkSignLoginModal.js"></script>
+  <script src="js/init.js"></script>
+
 
 </body>
 

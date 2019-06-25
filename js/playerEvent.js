@@ -43,11 +43,11 @@ function setRadio() {
         url = el.url;
         logo = el.img;
         trackName = el.songName;
+        radio.src = url;
+        radioLogo.src = logo;
+        radioTitle.innerHTML = title;
       }
     });
-    radio.src = url;
-    radioLogo.src = logo;
-    radioTitle.innerHTML = title;
     getTrackName(trackName);
     changeCheckSongName();
   }
