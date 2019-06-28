@@ -1,15 +1,16 @@
-let radioWrap = document.querySelector('.radio-wrap');
-let radioLogo = document.querySelector('.player-img');
-let radioTitle = document.querySelector('.player-title');
-let radioSong = document.querySelector('.player__data-song');
-let radio = document.querySelector('audio');
-let volume = document.querySelector('.volume-input');
-let noVolume = document.querySelector('.control-volume');
-let playerStop = document.querySelector('.control-stop');
+const radioWrap = document.querySelector('.radio-wrap'),
+ radioLogo = document.querySelector('.player-img'),
+ radioTitle = document.querySelector('.player-title'),
+ radioSong = document.querySelector('.player__data-song'),
+ radio = document.querySelector('audio'),
+ volume = document.querySelector('.volume-input'),
+ noVolume = document.querySelector('.control-volume'),
+ playerStop = document.querySelector('.control-stop');
 let url;
 let trackName;
 
 radioWrap.addEventListener('click', setRadio);
+favoriteWrap.addEventListener('click',setRadio);
 volume.addEventListener('mousemove', setVolume);
 noVolume.addEventListener('click', stopVolume);
 playerStop.addEventListener('click', setPlayOrStopKey);
@@ -33,10 +34,13 @@ function stopVolume() {
 }
 
 function setRadio() {
-  if (event.target.classList.contains('radio-wrap') == false) {
+  if (event.target.classList.contains('radio-wrap') == false && event.target.classList.contains('radio__button') == false) {
     let title = '';
     let logo = '';
     let currentRadio = getData();
+    if (currentList == ''){
+      currentList = dataAll;
+    }
     currentList.forEach(el => {
       if (currentRadio == el.id) {
         title = el.title;

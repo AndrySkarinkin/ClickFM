@@ -13,7 +13,11 @@ const modalSign = document.querySelector('.modal-sign-wrap'),
   modalExitNoBtn = document.querySelector('.modal-exit-no'),
   modalUnlogin = document.querySelector('.modal-unlogin'),
   modalUnloginOkBtn = document.querySelector('.modal-unlogin-yes'),
-  modalUnloginNoBtn = document.querySelector('.modal-unlogin-no')
+  modalUnloginNoBtn = document.querySelector('.modal-unlogin-no'),
+  modalFavorite = document.querySelector('.modal-favorite'),
+  modalFavoriteText = document.querySelector('.modal-favorite__title'),
+  modalFavoriteOkBtn = document.querySelector('.modal-favorite-yes'),
+  modalFavoriteNoBtn = document.querySelector('.modal-favorite-no'),
   closeWarningModal = document.querySelector('.warning-btn');
 
 signButton.addEventListener('click', () => show(modalSign));

@@ -467,6 +467,73 @@ img {
           box-shadow: 0 0 10px #409cde;
 }
 
+@media (max-width: 580px) {
+  .radio {
+    width: 100%;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .radio__button {
+    height: 50px;
+    width: 150px;
+    margin-top: 0;
+  }
+  .radio__title {
+    font-size: 14px;
+    width: 100px;
+    margin-right: 5px;
+    margin-left: 5px;
+    margin-top: 0;
+  }
+  .radio__descr {
+    display: none;
+  }
+  .radio img {
+    height: 50px;
+  }
+}
+
+@media (max-width: 380px) {
+  .radio img {
+    height: 40px;
+  }
+  .radio__button {
+    height: 40px;
+    width: 110px;
+    font-size: 14px;
+    padding: 5px;
+  }
+}
+
+.favorite-wrap {
+  display: none;
+}
+
+.favorite {
+  margin-top: 80px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -ms-flex-preferred-size: 20%;
+      flex-basis: 20%;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
 .player {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -487,8 +554,8 @@ img {
   display: flex;
   -ms-flex-pack: distribute;
       justify-content: space-around;
-  -ms-flex-preferred-size: 40%;
-      flex-basis: 40%;
+  -ms-flex-preferred-size: 50%;
+      flex-basis: 50%;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -537,8 +604,8 @@ img {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  -ms-flex-preferred-size: 60%;
-      flex-basis: 60%;
+  -ms-flex-preferred-size: 50%;
+      flex-basis: 50%;
 }
 
 .player__control-panel {
@@ -550,19 +617,6 @@ img {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-}
-
-.control-like {
-  cursor: pointer;
-  font-size: 25px;
-  color: white;
-  -webkit-transition: 0.3s;
-  transition: 0.3s;
-  margin: 0 15px;
-}
-
-.control-like:hover {
-  color: #dc050d;
 }
 
 .control-stop, .control-prev, .control-next, .control-volume {
@@ -912,7 +966,7 @@ img {
   margin-bottom: 30px;
 }
 
-.modal-exit, .modal-unlogin {
+.modal-exit, .modal-unlogin, .modal-favorite {
   display: none;
   position: fixed;
   top: 15%;
@@ -925,14 +979,14 @@ img {
   z-index: 4;
 }
 
-.modal-exit__title, .modal-unlogin__title {
+.modal-exit__title, .modal-unlogin__title, .modal-favorite__title {
   text-align: center;
   font-size: 18px;
   font-family: 'Rubik-Regular';
   margin-bottom: 30px;
 }
 
-.modal-exit__buttons, .modal-unlogin__buttons {
+.modal-exit__buttons, .modal-unlogin__buttons, .modal-favorite__buttons {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -945,7 +999,15 @@ img {
           justify-content: space-between;
 }
 
-.modal-btn-exit, .modal-btn-unlogin {
+.modal-favorite {
+  height: 200px;
+  top: 50%;
+  right: 50%;
+  -webkit-transform: translate(150px, -100px);
+          transform: translate(150px, -100px);
+}
+
+.modal-btn-exit, .modal-btn-unlogin, .modal-btn-favorite {
   padding: 15px 35px;
 }
 

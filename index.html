@@ -94,12 +94,13 @@
             <div class="top-menu__link" id="log-in"> <i class="fas fa-lock lock"></i> Log in</div>
             <div class="top-menu__link" id="exit"> <i class="fas fa-sign-out-alt"></i> Exit</div>
 
-            
+
           </li>
 
           <li>
             <div class="top-menu__link" id="sign-up"> <i class="fas fa-sign-in-alt sign"></i> Sign up</div>
-            <div class="top-menu__link del-accaunt"  title="delete accaunt" id="del-accaunt"> <i class="fas fa-user-times" title = "delete account"></i></div>
+            <div class="top-menu__link del-accaunt" title="delete accaunt" id="del-accaunt"> <i
+                class="fas fa-user-times" title="delete account"></i></div>
             <div class="top-menu__link user-icon"><i class="fas fa-user"></i></div>
           </li>
 
@@ -118,6 +119,12 @@
   </div>
   <!-- /.radio-wrap -->
 
+  <div class="favorite-wrap">
+    <div class="favorite">
+    </div>
+    <!-- /.favorite -->
+  </div>
+
   <div class="container">
     <div class="player">
       <div class="player__data">
@@ -134,9 +141,7 @@
         <div class="player__conrol-panel">
           <audio autoplay></audio>
 
-          <span title="Add to favorites" class="control-like">
-            <i class="fas fa-heart"></i>
-          </span>
+          
 
           <span title="back" class="control-prev">
             <i class="fas fa-backward"></i>
@@ -210,27 +215,33 @@
 
     <div class="modal-exit">
       <div class="modal-exit__title">
-          Do you really want to exit?
+        Do you really want to exit?
       </div>
       <div class="modal-exit__buttons">
         <button class="modal-btn modal-btn-exit modal-exit-yes">Yes</button>
         <button class="modal-btn modal-btn-exit modal-exit-no">No</button>
       </div>
-      </div>
-      <div class="modal-unlogin">
-          <div class="modal-unlogin__title">
-              Do you really want to delete your account?
-          </div>
-          <div class="modal-unlogin__buttons">
-            <button class="modal-btn modal-btn-unlogin modal-unlogin-yes">Yes</button>
-            <button class="modal-btn modal-btn-unlogin modal-unlogin-no">No</button>
-          </div>
     </div>
 
-      
-  
+    <div class="modal-unlogin">
+      <div class="modal-unlogin__title">
+        Do you really want to delete your account?
+      </div>
+      <div class="modal-unlogin__buttons">
+        <button class="modal-btn modal-btn-unlogin modal-unlogin-yes">Yes</button>
+        <button class="modal-btn modal-btn-unlogin modal-unlogin-no">No</button>
+      </div>
+    </div>
 
-
+    <div class="modal-favorite">
+      <div class="modal-favorite__title">
+        do you really want to add radio to favorites?
+      </div>
+      <div class="modal-favorite__buttons">
+        <button class="modal-btn modal-btn-favorite modal-favorite-yes">Yes</button>
+        <button class="modal-btn modal-btn-favorite modal-favorite-no">No</button>
+      </div>
+    </div>
   </div>
   <!-- /.container -->
 
@@ -243,6 +254,7 @@
   <script src="js/playerEvent.js"></script>
   <script src="js/modalEvents.js"></script>
   <script src="js/checkSignLoginModal.js"></script>
+  <script src="js/favorite.js"></script>
   <script src="js/init.js"></script>
 
 

@@ -1,4 +1,5 @@
-const radioList = document.querySelector('.radio-wrap');
+const radioList = document.querySelector('.radio-wrap'),
+favoriteWrap = document.querySelector('.favorite-wrap');
 let currentList = '';
 
 radioList.addEventListener('click', setActiveRadio);
@@ -74,6 +75,8 @@ function setRadioList(dataList, genre, pathName) {
   radioList.innerHTML = getList;
   currentList = dataList;
   window.location.hash = pathName;
+  radioList.style.display = 'flex';
+  favoriteWrap.style.display = 'none';
 }
 
 function setActiveRadio() {

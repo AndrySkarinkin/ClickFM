@@ -1,4 +1,4 @@
-.radio
+.radio 
   display: flex
   flex-direction: column
   flex-direction: 20%
@@ -55,5 +55,38 @@
   color: white
 .active-radio
    box-shadow: 0 0 10px #409cde
+@media (max-width: 580px)
+  .radio  
+   width: 100%
+   flex-direction: row
+   justify-content: center
+   align-items: center
+   &__button
+     height: 50px
+     width: 150px
+     margin-top: 0
+   &__title
+     font-size: 14px
+     width: 100px
+     margin-right: 5px
+     margin-left: 5px
+     margin-top: 0
+   &__descr
+     display: none
+   img
+     height: 50px
+@media (max-width: 380px)
+  .radio
+    img
+      height: 40px
+    &__button
+      height: 40px
+      width: 110px
+      font-size: 14px
+      padding: 5px
+     
+  
+    
+  
 
   

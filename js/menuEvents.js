@@ -4,6 +4,7 @@ const mobileButtonMenu = document.querySelector('.mobile-menu'),
   exitBtn = document.querySelector('#exit'),
   signButton = document.querySelector('#sign-up'),
   loginButton = document.querySelector('#log-in'),
+  favoriteBtn = document.querySelector('#favorite'),
   heart = document.querySelector('.heart'),
   userIcon = document.querySelector('.user-icon')
   submenu = document.querySelector('.submenu');
@@ -16,8 +17,8 @@ mobileButtonMenu.addEventListener('click', changeMenuIcon);
 menu.addEventListener('click', showHideSubMenu);
 menu.addEventListener('click', printRadioList);
 menu.addEventListener('click', setActiveLink);
+delAccauntBtn.addEventListener('click', removeFavorite);
 
-//menu.addEventListener('click', changeArrow);
 
 function showOrHideMenu() {
   menu.classList.toggle('show');
@@ -51,5 +52,13 @@ function setActiveLink() {
       }
     }
     event.target.parentNode.classList.add('active-link');
+  }
+}
+
+function removeFavorite(){
+  if(localStorage.getItem('favorite')){
+    localStorage.removeItem('favorite');
+  } else{
+    console.log('no item');
   }
 }

@@ -21,6 +21,7 @@ exitBtn.addEventListener('click', confirmExit);
 
 
 
+
 function conductInput(inputName, number) {
   if (inputName.value.length > number) {
     inputName.style.color = 'green';
