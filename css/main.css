@@ -366,6 +366,13 @@ img {
   .show {
     display: block;
   }
+  .del-accaunt {
+    display: none;
+    background: #409cde;
+  }
+  .user-icon {
+    display: none;
+  }
 }
 
 .radio {
