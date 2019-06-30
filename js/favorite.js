@@ -12,19 +12,26 @@ favoriteBtn.addEventListener('click', showFavoriteList);
 favorite.addEventListener('click', deleteRadioFromFavorite);
 
 function addRadioToFavorite() {
-
   if (event.target.classList.contains('radio__button')) {
     if (localStorage.getItem('loginStatus') == 'true') {
       if (favoriteList.indexOf(event.target.parentNode.id) == -1) {
         favoriteList.push(event.target.parentNode.id);
         localStorage.setItem('favorite', JSON.stringify(favoriteList));
+        setFavoriteBadge(event.target);
       }
     } else {
       innerWarningText.innerHTML = 'to add radio to favorites you need to login';
       show(warningModal);
     }
-
   }
+}
+
+function setFavoriteBadge(event) {
+  event.style.display = 'none';
+  let favoriteBlock =document.createElement('div');
+  favoriteBlock.classList.add('radio__favorite');
+  favoriteBlock.innerHTML = '<i class="fas fa-heart hearts"></i>';
+  event.parentNode.appendChild(favoriteBlock);
 }
 
 function setFavoriteList() {

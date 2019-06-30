@@ -41,14 +41,12 @@ img {
   -webkit-box-pack: end;
       -ms-flex-pack: end;
           justify-content: flex-end;
-  z-index: 1;
 }
 
 .top-menu li {
   list-style: none;
   cursor: pointer;
   position: relative;
-  z-index: 1;
 }
 
 .top-menu li:hover .top-menu__link {
@@ -74,7 +72,6 @@ img {
 }
 
 .top-menu-wrap {
-  z-index: 2;
   position: fixed;
   top: 0;
   right: 0;
@@ -115,7 +112,6 @@ img {
 }
 
 .top-menu__link {
-  z-index: 1;
   font-size: 18px;
   padding: 20px 30px;
   font-family: 'Rubik-Regular';
@@ -156,13 +152,8 @@ img {
 }
 
 .submenu {
-  z-index: -1;
-  opacity: 0;
+  display: none;
   position: absolute;
-  top: -200px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
@@ -179,7 +170,6 @@ img {
 }
 
 .submenu-link {
-  z-index: -1;
   font-size: 15px;
   font-family: 'Rubik-Regular';
   padding: 15px 0;
@@ -195,17 +185,6 @@ img {
   background: white;
   -webkit-transition: background 0.5s;
   transition: background 0.5s;
-}
-
-.top-menu li:hover .submenu {
-  top: 62px;
-  opacity: 1;
-  -webkit-transition: 0.4s;
-  transition: 0.4s;
-}
-
-.top-menu li:hover .submenu-link {
-  display: block;
 }
 
 .title {
@@ -224,6 +203,19 @@ img {
 
 .user-icon {
   display: none;
+}
+
+@media (min-width: 801px) {
+  .top-menu li:hover .submenu {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-transition: 0.4s;
+    transition: 0.4s;
+  }
+  .top-menu li:hover .submenu-link {
+    display: block;
+  }
 }
 
 @media (max-width: 1300px) {
@@ -436,6 +428,26 @@ img {
   min-height: 40px;
 }
 
+.radio__favorite {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-top: 10px;
+  height: 39px;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  outline: none;
+}
+
+.radio__favorite .fa-heart {
+  color: #dc050d;
+  font-size: 30px;
+}
+
 .radio__button {
   border: none;
   border-radius: 5px;
@@ -641,6 +653,19 @@ img {
 
 .control-stop:title, .control-prev:title, .control-next:title, .control-volume:title {
   font-size: 30px;
+}
+
+.control-like {
+  cursor: pointer;
+  font-size: 30px;
+  color: white;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+  margin: 0 15px;
+}
+
+.control-like:hover {
+  color: #dc050d;
 }
 
 .volume-input {

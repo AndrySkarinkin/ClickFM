@@ -1,16 +1,18 @@
 const radioWrap = document.querySelector('.radio-wrap'),
- radioLogo = document.querySelector('.player-img'),
- radioTitle = document.querySelector('.player-title'),
- radioSong = document.querySelector('.player__data-song'),
- radio = document.querySelector('audio'),
- volume = document.querySelector('.volume-input'),
- noVolume = document.querySelector('.control-volume'),
- playerStop = document.querySelector('.control-stop');
+  radioLogo = document.querySelector('.player-img'),
+  radioTitle = document.querySelector('.player-title'),
+  radioSong = document.querySelector('.player__data-song'),
+  radio = document.querySelector('audio'),
+  volume = document.querySelector('.volume-input'),
+  noVolume = document.querySelector('.control-volume'),
+  like = document.querySelector('.like'),
+  playerStop = document.querySelector('.control-stop');
 let url;
 let trackName;
 
 radioWrap.addEventListener('click', setRadio);
-favoriteWrap.addEventListener('click',setRadio);
+favoriteWrap.addEventListener('click', setRadio);
+favoriteWrap.addEventListener('click', alwaysFavorite);
 volume.addEventListener('mousemove', setVolume);
 noVolume.addEventListener('click', stopVolume);
 playerStop.addEventListener('click', setPlayOrStopKey);
@@ -38,7 +40,7 @@ function setRadio() {
     let title = '';
     let logo = '';
     let currentRadio = getData();
-    if (currentList == ''){
+    if (currentList == '') {
       currentList = dataAll;
     }
     currentList.forEach(el => {
@@ -54,6 +56,7 @@ function setRadio() {
     });
     getTrackName(trackName);
     changeCheckSongName();
+    checkFavorite(event.target);
   }
 }
 
@@ -97,4 +100,24 @@ function getData() {
   let radio = '';
   event.target.id == '' ? radio = event.target.parentNode.id : radio = event.target.id;
   return radio;
+}
+
+function checkFavorite(target) {
+  let login = localStorage.getItem('loginStatus');
+
+  if (target.parentNode.children[3].classList.contains('radio__favorite') && login == 'true') {
+    console.log('work');
+    like.style.color = '#dc050d';
+  } else {
+    like.style.color = 'white';
+  }
+  if (target.classList.contains('radio') && login == 'true') {
+    if (target.children[3].classList.contains('radio__favorite')) {
+      like.style.color = '#dc050d';
+    }
+  }
+}
+
+function alwaysFavorite() {
+  like.style.color = '#dc050d';
 }

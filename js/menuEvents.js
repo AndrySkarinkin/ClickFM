@@ -7,7 +7,7 @@ const mobileButtonMenu = document.querySelector('.mobile-menu'),
   favoriteBtn = document.querySelector('#favorite'),
   heart = document.querySelector('.heart'),
   userIcon = document.querySelector('.user-icon')
-  submenu = document.querySelector('.submenu');
+submenu = document.querySelector('.submenu');
 
 
 
@@ -18,6 +18,8 @@ menu.addEventListener('click', showHideSubMenu);
 menu.addEventListener('click', printRadioList);
 menu.addEventListener('click', setActiveLink);
 delAccauntBtn.addEventListener('click', removeFavorite);
+menu.addEventListener('click', closeMobileMenu);
+
 
 
 function showOrHideMenu() {
@@ -44,8 +46,8 @@ function showHideSubMenu() {
 function setActiveLink() {
   let parent = event.target.parentNode.parentNode;
   let array = parent.children;
-  if (event.target != menu && event.target != signButton && event.target != loginButton && 
-    event.target != delAccauntBtn && event.target != exitBtn  ) {
+  if (event.target != menu && event.target != signButton && event.target != loginButton &&
+    event.target != delAccauntBtn && event.target != exitBtn && event.target != userIcon) {
     for (let i = 0; i < array.length; i++) {
       if (array[i].classList.contains('active-link')) {
         array[i].classList.remove('active-link');
@@ -55,10 +57,17 @@ function setActiveLink() {
   }
 }
 
-function removeFavorite(){
-  if(localStorage.getItem('favorite')){
+function removeFavorite() {
+  if (localStorage.getItem('favorite')) {
     localStorage.removeItem('favorite');
-  } else{
+  } else {
     console.log('no item');
+  }
+}
+
+function closeMobileMenu() {
+  if (event.target.children.length == 0 || event.target.classList.contains('fav')) {
+    showOrHideMenu();
+    changeMenuIcon();
   }
 }

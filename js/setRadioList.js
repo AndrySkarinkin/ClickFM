@@ -1,5 +1,5 @@
 const radioList = document.querySelector('.radio-wrap'),
-favoriteWrap = document.querySelector('.favorite-wrap');
+  favoriteWrap = document.querySelector('.favorite-wrap');
 let currentList = '';
 
 radioList.addEventListener('click', setActiveRadio);
@@ -61,9 +61,23 @@ function printRadioList() {
 }
 
 function setRadioList(dataList, genre, pathName) {
+  let login = localStorage.getItem('loginStatus');
+  let findList = '';
+  if (login == 'true'){
+    let favoriteList = JSON.parse(localStorage.getItem('favorite'));
+    findList = favoriteList.join(' ');
+  }
+  
   let getList = '';
   dataList.forEach(el => {
-    if (el.type.indexOf(genre) != -1) {
+    if (el.type.indexOf(genre) != -1 && findList.indexOf(el.id) != -1 && login == 'true') {
+      getList += `<div class="radio " id="${el.id}">
+        <img src="${el.img}" alt="${el.id}">
+        <div class="radio__title">${el.title}</div>
+        <div class="radio__descr">${el.type}</div>
+        <div class="radio__favorite"><i class="fas fa-heart hearts"></i></div>
+      </div>`;
+    } else if (el.type.indexOf(genre) != -1) {
       getList += `<div class="radio " id="${el.id}">
         <img src="${el.img}" alt="${el.id}">
         <div class="radio__title">${el.title}</div>
