@@ -39,12 +39,6 @@ function printRadioList() {
     case 'rap':
       setRadioList(dataRap, 'rap', 'rap');
       break;
-    case 'foreign-rap':
-      setRadioList(dataRap, 'foreign-rap', 'foreign-rap');
-      break;
-    case 'russian-rap':
-      setRadioList(dataRap, 'russian-rap', 'russian-rap');
-      break;
     case 'relax':
       setRadioList(dataRelax, 'relax', 'relax');
       break;
@@ -57,17 +51,18 @@ function printRadioList() {
     case 'russian-rock':
       setRadioList(dataRock, 'russian-rock', 'russian-rock');
       break;
+    case 'favorite':
+      window.location.hash = 'favorite';
   }
 }
 
 function setRadioList(dataList, genre, pathName) {
   let login = localStorage.getItem('loginStatus');
   let findList = '';
-  if (login == 'true'){
+  if (login == 'true' && localStorage.getItem('favorite') != null) {
     let favoriteList = JSON.parse(localStorage.getItem('favorite'));
     findList = favoriteList.join(' ');
   }
-  
   let getList = '';
   dataList.forEach(el => {
     if (el.type.indexOf(genre) != -1 && findList.indexOf(el.id) != -1 && login == 'true') {
@@ -109,7 +104,5 @@ function setActiveRadio() {
     event.target.classList.contains('radio') ?
       event.target.classList.add('active-radio') :
       event.target.parentNode.classList.add('active-radio')
-
-
   }
 }

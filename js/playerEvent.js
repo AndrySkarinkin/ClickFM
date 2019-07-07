@@ -5,18 +5,25 @@ const radioWrap = document.querySelector('.radio-wrap'),
   radio = document.querySelector('audio'),
   volume = document.querySelector('.volume-input'),
   noVolume = document.querySelector('.control-volume'),
-  like = document.querySelector('.like'),
+  like = document.querySelector('.control-like'),
+  previousRadio = document.querySelector('.control-prev'),
+  nextRadio = document.querySelector('.control-next'),
   playerStop = document.querySelector('.control-stop');
-let url;
-let trackName;
+let url,
+  trackName,
+  currentRadio,
+  title = '',
+  logo = '';
 
 radioWrap.addEventListener('click', setRadio);
 favoriteWrap.addEventListener('click', setRadio);
-favoriteWrap.addEventListener('click', alwaysFavorite);
 volume.addEventListener('mousemove', setVolume);
+volume.addEventListener('input', changeProgress);
 noVolume.addEventListener('click', stopVolume);
 playerStop.addEventListener('click', setPlayOrStopKey);
 playerStop.addEventListener('click', playOrStopSound);
+previousRadio.addEventListener('click', setPrevRadio);
+nextRadio.addEventListener('click', setNextRadio);
 
 function setVolume() {
   radio.volume = volume.value;
@@ -35,11 +42,48 @@ function stopVolume() {
   }
 }
 
+function setPrevRadio() {
+
+  for (i = 0; i < currentList.length; i++) {
+    if (currentList[i].id == currentRadio) {
+      title = currentList[i - 1].title;
+      url = currentList[i - 1].url;
+      logo = currentList[i - 1].img;
+      trackName = currentList[i - 1].songName;
+      radio.src = url;
+      radioLogo.src = logo;
+      radioTitle.innerHTML = title;
+      currentRadio = currentList[i - 1].id;
+      getTrackName(trackName);
+      changeCheckSongName();
+      checkFavorite(event.target);
+    }
+  }
+}
+
+function setNextRadio() {
+  for (i = 0; i < currentList.length - 1; i++) {
+    if (currentList[i].id == currentRadio) {
+      title = currentList[i + 1].title;
+      url = currentList[i + 1].url;
+      logo = currentList[i + 1].img;
+      trackName = currentList[i + 1].songName;
+      radio.src = url;
+      radioLogo.src = logo;
+      radioTitle.innerHTML = title;
+      currentRadio = currentList[i + 1].id;
+      getTrackName(trackName);
+      changeCheckSongName();
+      checkFavorite(event.target);
+      break;
+    }
+  }
+}
+
 function setRadio() {
   if (event.target.classList.contains('radio-wrap') == false && event.target.classList.contains('radio__button') == false) {
-    let title = '';
-    let logo = '';
-    let currentRadio = getData();
+
+    currentRadio = getData();
     if (currentList == '') {
       currentList = dataAll;
     }
@@ -56,7 +100,7 @@ function setRadio() {
     });
     getTrackName(trackName);
     changeCheckSongName();
-    checkFavorite(event.target);
+    checkFavorite();
   }
 }
 
@@ -82,12 +126,17 @@ function getTrackName(songName = trackName) {
       return response.json();
     })
     .then((data) => {
-      data.title.length > 30 ? data.title = data.title.substring(0, 31) + "..." : data.title = data.title;
+      if (window.innerWidth < 1000 && window.innerWidth > 800 || window.innerWidth < 600) {
+        data.title.length > 35 ? data.title = data.title.substring(0, 34) + "..." : data.title = data.title;
+      }
+      if(window.innerWidth < 400){
+        data.title.length > 25 ? data.title = data.title.substring(0, 24) + "..." : data.title = data.title;
+      }
+
       if (radioSong.innerHTML == data.title) {
         return true;
       } else {
         radioSong.innerHTML = data.title;
-        console.log('newSong');
       }
     });
 }
@@ -102,22 +151,24 @@ function getData() {
   return radio;
 }
 
-function checkFavorite(target) {
-  let login = localStorage.getItem('loginStatus');
-
-  if (target.parentNode.children[3].classList.contains('radio__favorite') && login == 'true') {
-    console.log('work');
-    like.style.color = '#dc050d';
-  } else {
-    like.style.color = 'white';
-  }
-  if (target.classList.contains('radio') && login == 'true') {
-    if (target.children[3].classList.contains('radio__favorite')) {
-      like.style.color = '#dc050d';
-    }
+function checkFavorite() {
+  if(localStorage.getItem(registrStatus) == 'true'){
+    let count = 0;
+    let fav = JSON.parse(localStorage.getItem('favorite'));
+    fav.forEach(el => {
+      if (el == currentRadio && localStorage.getItem('loginStatus') == 'true') {
+        count++;
+      }
+    });
+    count > 0 ? like.style.display = 'inline-block' : like.style.display = 'none';
   }
 }
 
-function alwaysFavorite() {
-  like.style.color = '#dc050d';
+function changeProgress() {
+  let progress = volume.value;
+  progress = progress * 100;
+  volume.style.background =
+    `-webkit-linear-gradient(left,#409cde 0%, #409cde ${progress}%, #ffffff ${progress}%, #ffffff 100% )`;
+  volume.style.background =
+    `-moz-linear-gradient(left,#409cde 0%, #409cde ${progress}%, #ffffff ${progress}%, #ffffff 100% )`;
 }

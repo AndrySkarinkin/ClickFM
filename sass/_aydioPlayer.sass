@@ -23,7 +23,6 @@
       padding: 0
       img
          width: 70px
-
     &-descr
       a
         text-decoration: none
@@ -42,6 +41,7 @@
     flex-basis: 50%
     &-panel
       display: flex
+      width: 80%
       justify-content: space-around
       align-items: center  
 .control
@@ -56,23 +56,48 @@
     &:title
       font-size: 30px
 .control
-  &-like
+  &-like 
+    display: none
     cursor: pointer
-    font-size: 30px
-    color: white
-    transition: 0.3s
-    margin: 0 15px
-    &:hover
-      color: #dc050d
+    vertical-align: center
+    font-size: 25px
+    color: #dc050d
+    margin: 0 15px 
 .volume-input
+  -webkit-appearance: none
   width: 200px
+  height: 10px
   cursor: pointer
-.haip-fm
-  +medium
-  display: block
-.russian-song
-  +bold
-  display: block
+  outline: none
+  border-radius: 50px
+  background: -webkit-linear-gradient(left,#409cde 0%, #409cde 50%, #ffffff 50%, #ffffff 100% )
+.volume-input::-webkit-slider-thumb
+  -webkit-appearance: none
+  width: 22px
+  height: 22px
+  background: lighten(grey, 25%)
+  border: 2px solid white
+  border-radius: 100%
+
+.volume-input::-moz-range-track
+  -moz-appearance: none
+  width: 200px
+  height: 10px
+  cursor: pointer
+  outline: none
+  border-radius: 50px
+  background: -moz-linear-gradient(left,#409cde 0%, #409cde 50%, #ffffff 50%, #ffffff 100% )
+
+.volume-input::-moz-range-thumb
+  -moz-appearance: none
+  width: 22px
+  height: 22px
+  background: lighten(grey, 25%)
+  border: 2px solid white
+  border-radius: 100%
+@media (max-width: 1000px)
+  .player__control-panel
+    width: 90%
 @media (max-width: 950px)
   .control
     &-stop, &-prev, &-next, &-volume, &-like
@@ -89,6 +114,7 @@
     flex-direction: column
     height: 80px
     padding: 5px
+    padding-bottom: 0
     &__data
       justify-content: center
       align-items: center
@@ -100,10 +126,6 @@
         margin-top: 0
         vertical-align: center
       &-descr
-        display: flex
-        flex-direction: row
-        justify-content: space-between
-        align-items: center
         a
           font-size: 16px
           margin-right: 10px
@@ -115,12 +137,31 @@
       margin: 0 10px
   .volume-input
      height: 10px
+  .volume-input::-webkit-slider-thumb
+    height: 20px
+    width: 20px
+  .volume-input::-moz-range-thumb
+    height: 20px
+    width: 20px
+  .player__control-panel
+    width: 60%
+  .player__data-descr
+    display: flex
+    width: 70%
+    height: 22px
+    align-items: center
+    justify-content: space-around
 
-
-  
+@media (max-width: 550px)
+  .player__data-descr
+    width: 100%
+@media (max-width: 700px)
+  .player__control-panel
+    width: 80%
 @media (max-width: 400px)
   .player
     padding: 5px
+    padding-bottom: 0
   .volume-input
     width: 100px
   .control
@@ -129,33 +170,11 @@
       margin: 0 5px
       &-panel
         align-items: center
+  .player__control-panel
+    width: 100%
+        
       
-  
 
-/* @media (max-width: 650px)
-  .control
-    &-stop, &-prev, &-next, &-volume, &-like
-      font-size: 25px
-      margin: 0 15px
-  .player
-    &-title
-      display: none
-    &__data
-      flex-basis: 45%
-    &__control
-      flex-basis: 65% */
-/* @media (max-width: 550px)
-  .control
-    &-stop, &-prev, &-next, &-volume, &-like
-      font-size: 20px
-      margin: 0 10px
-  .player
-    &__data-song
-      display: none
-    &__data
-      flex-basis: 30%
-    &__control
-      flex-basis: 70% */
 
 
 

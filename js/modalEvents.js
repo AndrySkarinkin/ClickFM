@@ -44,7 +44,6 @@ function hide(modal) {
 
 function chackRegistrStatus(){
   let registration = localStorage.getItem('registrStatus');
-  console.log(registration);
   
   if (registration == "true"){
     show(modalLogin);

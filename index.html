@@ -6,8 +6,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="stylesheet" href="css/main.css">
-
-  <title>ClickRadio</title>
+  <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
+  <link rel="manifest" href="favicon/site.webmanifest">
+  <link rel="mask-icon" href="favicon/safari-pinned-tab.svg" color="#409cde">
+  <link rel="shortcut icon" href="favicon/favicon.ico">
+  <meta name="msapplication-TileColor" content="#603cba">
+  <meta name="msapplication-config" content="favicon/browserconfig.xml">
+  <meta name="theme-color" content="#409cde">
+  <title>ClickFM</title>
 </head>
 
 <body>
@@ -28,7 +36,7 @@
 
         <ul class="top-menu">
 
-          <li>
+          <li class="active-link">
             <div class="all top-menu__link" id="all">All</div>
           </li>
 
@@ -63,12 +71,7 @@
           <li>
             <div class="top-menu__link" id="rap">
               Rap
-              <i class="fas fa-sort-down"></i>
             </div>
-            <ul class="submenu">
-              <li class="submenu-link" id="foreign-rap">Foreign Rap</li>
-              <li class="submenu-link" id="russian-rap">Russian Rap</li>
-            </ul>
           </li>
 
           <li>
@@ -94,7 +97,6 @@
             <div class="top-menu__link" id="log-in"> <i class="fas fa-lock lock"></i> Log in</div>
             <div class="top-menu__link" id="exit"> <i class="fas fa-sign-out-alt"></i> Exit</div>
 
-
           </li>
 
           <li>
@@ -106,7 +108,6 @@
 
         </ul>
         <!-- /.top-menu -->
-
       </nav>
       <!-- /.top-menu -->
     </header>
@@ -114,7 +115,6 @@
   <!-- /.container -->
 
   <div class="radio-wrap">
-
 
   </div>
   <!-- /.radio-wrap -->
@@ -138,10 +138,10 @@
 
       </div>
       <div class="player__control">
-        <div class="player__conrol-panel">
+        <div class="player__control-panel">
           <audio autoplay></audio>
 
-          <span title="Add to favorites" class="control-like">
+          <span title="Favorite radio" class="control-like">
             <i class="fas fa-heart like"></i>
           </span>
 
@@ -172,8 +172,6 @@
     <!-- /.player__data -->
   </div>
   <!-- /.player -->
-  </div>
-  <!-- /.container -->
 
   <div class="container">
     <div class="modal-sign-wrap">
@@ -188,7 +186,6 @@
       </div>
     </div>
     <!-- /.modal-sign-up-wrap -->
-
 
     <div class="modal-login-wrap">
       <div class="modal-login">
@@ -248,7 +245,6 @@
   <!-- /.container -->
 
 
-
   <script src="https://kit.fontawesome.com/b4af267f94.js"></script>
   <script src="js/dataRadio.js"></script>
   <script src="js/setRadioList.js"></script>
@@ -258,7 +254,6 @@
   <script src="js/checkSignLoginModal.js"></script>
   <script src="js/favorite.js"></script>
   <script src="js/init.js"></script>
-
 
 </body>
 

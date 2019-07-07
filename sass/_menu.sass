@@ -76,7 +76,9 @@
   width: 100%
   background: lighten(#409cde, 25%)
   transition:  0.4s
+  
   &-link
+    background: lighten(#409cde, 25%)
     font-size: 15px
     +medium
     padding: 15px 0
@@ -127,7 +129,25 @@
 .fa-sign-out-alt
   color: black
 
-@media (max-width: 1220px)
+@media (max-width: 1200px)
+  .top-menu
+    li
+      &:hover
+        .top-menu__link
+          padding: 18px
+        .submenu-link
+          line-height: 20px
+          padding: 10px 0
+          font-size: 12px
+    &__link
+      padding: 20px
+      font-size: 16px
+    &-logo
+      font-size: 18px
+  .fa-sort-down
+    font-size: 16px
+
+@media (max-width: 1050px)
   .top-menu
     li
       &:hover
@@ -146,7 +166,7 @@
     font-size: 16px
     
 
-@media (max-width: 950px)
+@media (max-width: 910px)
   .top-menu
     li
       &:hover
@@ -156,7 +176,7 @@
       padding: 20px 10px
       font-size: 15px
     &-logo-wrap
-      flex-basis: 13%
+      flex-basis: 13% 
 @media (max-width: 800px)
   .top-menu
     display: none

@@ -6,24 +6,25 @@ const mobileButtonMenu = document.querySelector('.mobile-menu'),
   loginButton = document.querySelector('#log-in'),
   favoriteBtn = document.querySelector('#favorite'),
   heart = document.querySelector('.heart'),
-  userIcon = document.querySelector('.user-icon')
-submenu = document.querySelector('.submenu');
-
-
-
+  userIcon = document.querySelector('.user-icon'),
+  delAccaunt = document.querySelector('.modal-unlogin-yes'),
+  submenu = document.querySelector('.submenu');
 
 mobileButtonMenu.addEventListener('click', showOrHideMenu);
 mobileButtonMenu.addEventListener('click', changeMenuIcon);
 menu.addEventListener('click', showHideSubMenu);
 menu.addEventListener('click', printRadioList);
 menu.addEventListener('click', setActiveLink);
-delAccauntBtn.addEventListener('click', removeFavorite);
+delAccaunt.addEventListener('click', removeFavorite);
 menu.addEventListener('click', closeMobileMenu);
-
 
 
 function showOrHideMenu() {
   menu.classList.toggle('show');
+  menu.classList.contains('show') ?
+    document.body.style.overflow = 'hidden' :
+    document.body.style.overflowY = 'scroll';
+
 }
 
 function changeMenuIcon() {
@@ -55,13 +56,14 @@ function setActiveLink() {
     }
     event.target.parentNode.classList.add('active-link');
   }
+  if (localStorage.getItem('loginStatus') == 'false') {
+    favoriteBtn.parentNode.classList.remove('active-link');
+  }
 }
 
 function removeFavorite() {
   if (localStorage.getItem('favorite')) {
     localStorage.removeItem('favorite');
-  } else {
-    console.log('no item');
   }
 }
 

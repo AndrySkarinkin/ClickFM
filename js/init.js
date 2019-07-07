@@ -1,12 +1,5 @@
 const registrStatus = localStorage.getItem('registrStatus'),
   loginStatus = localStorage.getItem('loginStatus');
-let name = localStorage.getItem('name');
-
-if (name) {
-  if (name.length > 8) {
-    name = name.substring(0, 9) + '...';
-  }
-}
 
 switch (registrStatus) {
   case 'true':
@@ -32,5 +25,7 @@ switch (loginStatus) {
     exitBtn.style.display = 'none';
     loginButton.style.display = 'block';
     userIcon.style.display = 'none';
-    break;
+    break;   
 }
+
+setRadioList(dataAll, '', 'all');
