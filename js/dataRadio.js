@@ -616,7 +616,7 @@ let dataRock = [
     id: 'knac',
     url: 'http://s5.voscast.com:7346/;',
     title: 'KNAC.com',
-    img: '../img/radioIMG/knac.png',
+    img: 'img/radioIMG/knac.png',
     songName: 'https://scraper2.onlineradiobox.com/us.knac?l=0'
   },
 ];

@@ -11,6 +11,7 @@ const mobileButtonMenu = document.querySelector('.mobile-menu'),
   submenu = document.querySelector('.submenu');
 
 mobileButtonMenu.addEventListener('click', showOrHideMenu);
+mobileButtonMenu.addEventListener('click', noscrollMobileMenu);
 mobileButtonMenu.addEventListener('click', changeMenuIcon);
 menu.addEventListener('click', showHideSubMenu);
 menu.addEventListener('click', printRadioList);
@@ -21,11 +22,14 @@ menu.addEventListener('click', closeMobileMenu);
 
 function showOrHideMenu() {
   menu.classList.toggle('show');
-  if(window.innerWidth <801){
-    menu.classList.contains('show') ?
+}
+
+function noscrollMobileMenu() {
+
+  menu.classList.contains('show') ?
     document.body.style.overflow = 'hidden' :
     document.body.style.overflowY = 'scroll';
-  }
+
 }
 
 function changeMenuIcon() {
@@ -72,5 +76,6 @@ function closeMobileMenu() {
   if (event.target.children.length == 0 || event.target.classList.contains('fav')) {
     showOrHideMenu();
     changeMenuIcon();
+    document.body.style.overflowY = 'scroll';
   }
 }
