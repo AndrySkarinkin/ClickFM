@@ -152,7 +152,8 @@ function getData() {
 }
 
 function checkFavorite() {
-  if(localStorage.getItem(registrStatus) == 'true'){
+  if(localStorage.getItem('registrStatus') == 'true'){
+    console.log('work');
     let count = 0;
     let fav = JSON.parse(localStorage.getItem('favorite'));
     fav.forEach(el => {
