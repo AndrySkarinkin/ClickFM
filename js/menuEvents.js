@@ -21,10 +21,11 @@ menu.addEventListener('click', closeMobileMenu);
 
 function showOrHideMenu() {
   menu.classList.toggle('show');
-  menu.classList.contains('show') ?
+  if(window.innerWidth <801){
+    menu.classList.contains('show') ?
     document.body.style.overflow = 'hidden' :
     document.body.style.overflowY = 'scroll';
-
+  }
 }
 
 function changeMenuIcon() {
