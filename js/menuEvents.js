@@ -50,7 +50,9 @@ function showHideSubMenu() {
 }
 
 function setActiveLink() {
-  let parent = event.target.parentNode.parentNode;
+  let parent;
+  event.target.classList.contains('top-menu__link') ? parent = event.target.parentNode.parentNode :
+    parent = event.target.parentNode.parentNode.parentNode;
   let array = parent.children;
   if (event.target != menu && event.target != signButton && event.target != loginButton &&
     event.target != delAccauntBtn && event.target != exitBtn && event.target != userIcon) {
@@ -59,8 +61,8 @@ function setActiveLink() {
         array[i].classList.remove('active-link');
       }
     }
-    event.target.parentNode.classList.add('active-link');
   }
+  event.target.classList.contains('top-menu__link') ? event.target.parentNode.classList.add('active-link') : event.target.parentNode.parentNode.classList.add('active-link');
   if (localStorage.getItem('loginStatus') == 'false') {
     favoriteBtn.parentNode.classList.remove('active-link');
   }
