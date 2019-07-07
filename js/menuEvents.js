@@ -61,8 +61,9 @@ function setActiveLink() {
         array[i].classList.remove('active-link');
       }
     }
+    event.target.classList.contains('top-menu__link') ? event.target.parentNode.classList.add('active-link') : event.target.parentNode.parentNode.classList.add('active-link');
   }
-  event.target.classList.contains('top-menu__link') ? event.target.parentNode.classList.add('active-link') : event.target.parentNode.parentNode.classList.add('active-link');
+  
   if (localStorage.getItem('loginStatus') == 'false') {
     favoriteBtn.parentNode.classList.remove('active-link');
   }
